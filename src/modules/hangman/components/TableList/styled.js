@@ -14,6 +14,8 @@ export const Td = styled.td`
 
 export const Thead = styled.thead``;
 
+export const Tbody = styled.tbody``;
+
 export const Th = styled.th`
   border: 1px solid #dddddd;
   text-align: left;

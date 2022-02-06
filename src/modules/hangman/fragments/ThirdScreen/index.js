@@ -51,8 +51,6 @@ export const ThirdScreen = () => {
     setListWithScores(arrayWithScoresInList);
   }, [highScores]);
 
-  console.log("highScores", highScores);
-
   return (
     <>
       {listWithScores && (

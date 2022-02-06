@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Table, Thead, Td, Th, Tr } from "./styled";
+import { Table, Thead, Td, Th, Tr, Tbody } from "./styled";
 
 export const TableList = ({ header, data }) => (
   <>
     <Table>
       <Thead>
         <Tr>
-          {header.map((item) => (
-            <Th key={item}>{item}</Th>
+          {header.map((item, index) => (
+            <Th key={index}>{item}</Th>
           ))}
         </Tr>
       </Thead>
-      {data.map((item) => (
-        <Tr key={item.userName}>
-          <Td>{item.userName}</Td>
-          <Td>{item.score}</Td>
-        </Tr>
-      ))}
+      <Tbody>
+        {data.map((item, index) => (
+          <Tr key={index}>
+            <Td>{item.userName}</Td>
+            <Td>{item.score}</Td>
+          </Tr>
+        ))}
+      </Tbody>
     </Table>
   </>
 );

@@ -4,7 +4,7 @@ import { SecondScreen } from "../SecondScreen";
 import { ThirdScreen } from "../ThirdScreen";
 
 export const ScreenManager = () => {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const goNext = () => {
     setCurrentStep(() => currentStep + 1);

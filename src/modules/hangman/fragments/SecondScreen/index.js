@@ -91,21 +91,12 @@ export const SecondScreen = ({ goNext }) => {
             duration,
           }
         );
-        setTimeout(() => goNext(), 3000);
+        setTimeout(() => goNext(), 1000);
       }
     } else {
       dispatch(setError(errorCounter + 1));
     }
   };
-
-  // useEffect(() => {
-  //   if (errorCounter >= 6) {
-  //     setMessage("You have lost!");
-  //     setTimeout(() => {
-  //       handleReset();
-  //     }, 3000);
-  //   }
-  // }, [errorCounter]);
 
   const handleReset = async () => {
     setMessage(false);
@@ -128,7 +119,7 @@ export const SecondScreen = ({ goNext }) => {
             padding="70px 50px"
           >
             <div>{message}</div>
-            {errorCounter > 0 && <ErrorText>ERRORS: {errorCounter}</ErrorText>}
+            <ErrorText>ERRORS: {errorCounter}</ErrorText>
             <FlexContainer flexDirection="row" width="80%">
               {data.content.split("").map((item, index) => (
                 <Character
