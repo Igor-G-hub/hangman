@@ -9,4 +9,11 @@ export const Button = styled.button`
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  width: ${({ width }) => width && width};
+
+  &:hover {
+    transform: scaleY(1.1);
+    transform: scaleX(1.1);
+    transition: 0.2s;
+  }
 `;

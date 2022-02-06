@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { Input, ActionButton, FlexContainer, ErrorMessage } from "shared/ui";
+import {
+  Input,
+  ActionButton,
+  FlexContainer,
+  ErrorMessage,
+  Title,
+} from "shared/ui";
 import { setName } from "modules/hangman/redux";
 
 export const FirstScreen = ({ goNext }) => {
@@ -25,12 +31,27 @@ export const FirstScreen = ({ goNext }) => {
 
   return (
     <>
-      <FlexContainer>
-        <Input label="Insert your name:" onChange={handleOnChange} />
+      <FlexContainer
+        flexDirection="column"
+        alignItems="center"
+        padding="30px"
+        background="#0000005f"
+        borderRadius="25px"
+      >
+        <FlexContainer padding="0 0 150px 0">
+          <Title text="Welcome to hangman game" />
+        </FlexContainer>
+
+        <Input
+          label="Insert your name:"
+          placeholder="Your name"
+          onChange={handleOnChange}
+        />
         {error && <ErrorMessage text="Please enter name" />}
         <ActionButton
           label="Submit"
-          margin="10px 0 0 0"
+          margin="40px 0 0 0"
+          width="30%"
           onClick={handleClick}
         />
       </FlexContainer>

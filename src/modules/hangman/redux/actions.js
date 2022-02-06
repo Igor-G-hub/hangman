@@ -64,6 +64,5 @@ export const axiosHandlingData = async (path, typeOfRequest, data) => {
     default:
       break;
   }
-  console.log("response dolje", response);
   return { response, error };
 };

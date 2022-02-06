@@ -5,6 +5,7 @@ const initialState = {
   data: null,
   errors: 0,
   initialTime: null,
+  highScores: null,
 };
 
 export const appSlice = createSlice({
@@ -23,7 +24,11 @@ export const appSlice = createSlice({
     setInitialTime: (state, action) => {
       state.initialTime = action.payload;
     },
+    setHighScores: (state, action) => {
+      state.highScores = action.payload;
+    },
   },
 });
 
-export const { setName, setData, setError, setInitialTime } = appSlice.actions;
+export const { setName, setData, setError, setInitialTime, setHighScores } =
+  appSlice.actions;

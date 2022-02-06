@@ -9,3 +9,7 @@ export const initialTimeSelector = createSelector(
   appSelector,
   (app) => app.initialTime
 );
+export const highScoresSelector = createSelector(
+  appSelector,
+  (app) => app.highScores
+);

@@ -1,6 +1,8 @@
 export const getQuotePath = "https://api.quotable.io/random";
 export const scoringDataPath =
   "https://my-json-server.typicode.com/stanko-ingemark/hang_the_wise_man_frontend_task/highscores";
+export const getHighScores =
+  "https://my-json-server.typicode.com/stanko-ingemark/hang_the_wise_man_frontend_task/highscores";
 
 export const alphabet = [
   "A",

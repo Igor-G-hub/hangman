@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const QuoteContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -18,4 +12,8 @@ export const ButtonsContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
+`;
+
+export const ErrorText = styled.h3`
+  font-size: 25px;
 `;

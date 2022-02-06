@@ -17,10 +17,10 @@ import {
 } from "utilities/const";
 import { Button } from "modules/hangman/components";
 import { Character } from "modules/hangman/components";
-import { ContentContainer, QuoteContainer, ButtonsContainer } from "./styled";
+import { ErrorText, ButtonsContainer } from "./styled";
 import { setData } from "modules/hangman/redux";
 import { useDispatch, useSelector } from "react-redux";
-import { ActionButton } from "shared/ui";
+import { ActionButton, FlexContainer } from "shared/ui";
 
 export const SecondScreen = ({ goNext }) => {
   const dispatch = useDispatch();
@@ -35,9 +35,6 @@ export const SecondScreen = ({ goNext }) => {
     []
   );
   const [message, setMessage] = useState(false);
-
-  console.log("initialTime", initialTime);
-  console.log("razlika", new Date().getTime() - initialTime);
 
   useEffect(() => {
     const callFetchData = async () => {
@@ -62,7 +59,6 @@ export const SecondScreen = ({ goNext }) => {
     );
     const formatQuoteArray = onlyLettersArray.map((item) => item.toUpperCase());
     setQuoteUniqueCharactersArray(formatQuoteArray);
-    console.log("formatQuoteArray lengtj", formatQuoteArray.length);
   }, [quoteArray]);
 
   const handleLetter = async (letter) => {
@@ -102,14 +98,14 @@ export const SecondScreen = ({ goNext }) => {
     }
   };
 
-  useEffect(() => {
-    if (errorCounter >= 6) {
-      setMessage("You have lost!");
-      setTimeout(() => {
-        handleReset();
-      }, 3000);
-    }
-  }, [errorCounter]);
+  // useEffect(() => {
+  //   if (errorCounter >= 6) {
+  //     setMessage("You have lost!");
+  //     setTimeout(() => {
+  //       handleReset();
+  //     }, 3000);
+  //   }
+  // }, [errorCounter]);
 
   const handleReset = async () => {
     setMessage(false);
@@ -125,10 +121,15 @@ export const SecondScreen = ({ goNext }) => {
     <>
       {data && (
         <>
-          <ContentContainer>
+          <FlexContainer
+            flexDirection="column"
+            alignItems="center"
+            background="#0000009f"
+            padding="70px 50px"
+          >
             <div>{message}</div>
-            {errorCounter > 0 && <div>ERRORS: {errorCounter}</div>}
-            <QuoteContainer>
+            {errorCounter > 0 && <ErrorText>ERRORS: {errorCounter}</ErrorText>}
+            <FlexContainer flexDirection="row" width="80%">
               {data.content.split("").map((item, index) => (
                 <Character
                   key={index}
@@ -139,7 +140,7 @@ export const SecondScreen = ({ goNext }) => {
                   )}
                 />
               ))}
-            </QuoteContainer>
+            </FlexContainer>
             <ButtonsContainer>
               {alphabet.map((item) => (
                 <Button
@@ -149,8 +150,13 @@ export const SecondScreen = ({ goNext }) => {
                 />
               ))}
             </ButtonsContainer>
-            <ActionButton label="Reset" onClick={handleReset} />
-          </ContentContainer>
+            <ActionButton
+              label="Reset"
+              onClick={handleReset}
+              margin="50px 0 0 0"
+              width="20%"
+            />
+          </FlexContainer>
         </>
       )}
     </>
