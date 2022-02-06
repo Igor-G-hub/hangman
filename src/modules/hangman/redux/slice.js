@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   name: null,
   data: null,
-  errors: null,
+  errors: 0,
+  initialTime: null,
 };
 
 export const appSlice = createSlice({
@@ -17,9 +18,12 @@ export const appSlice = createSlice({
       state.data = action.payload;
     },
     setError: (state, action) => {
-      state.errors = state.errors + 1;
+      state.errors = action.payload;
+    },
+    setInitialTime: (state, action) => {
+      state.initialTime = action.payload;
     },
   },
 });
 
-export const { setName, setData, setError } = appSlice.actions;
+export const { setName, setData, setError, setInitialTime } = appSlice.actions;

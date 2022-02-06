@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
 
 // export const useAxiosHandlingData = (path, typeOfRequest) => {
@@ -33,7 +32,7 @@ import axios from "axios";
 //   return { response, error, loading };
 // };
 
-export const axiosHandlingData = async (path, typeOfRequest) => {
+export const axiosHandlingData = async (path, typeOfRequest, data) => {
   let response;
   let error;
 
@@ -51,9 +50,19 @@ export const axiosHandlingData = async (path, typeOfRequest) => {
         .catch((err) => (error = err));
       break;
     case "POST":
-      return null;
+      await axios
+        .post(path, data, {
+          headers: {
+            "content-type": "text/json",
+          },
+        })
+        .then((res) => {
+          response = res;
+        })
+        .catch((err) => (error = err));
+      break;
     default:
-      return null;
+      break;
   }
   console.log("response dolje", response);
   return { response, error };
