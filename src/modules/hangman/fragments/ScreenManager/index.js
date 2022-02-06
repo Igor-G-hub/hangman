@@ -3,7 +3,7 @@ import { FirstScreen } from "../FirstScreen";
 import { SecondScreen } from "../SecondScreen";
 
 export const ScreenManager = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const goNext = () => {
     setCurrentStep(() => currentStep + 1);

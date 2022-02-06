@@ -5,7 +5,7 @@ export const LetterStyled = styled.div`
   margin: 10px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
   font-size: 18px;
-  color: ${({ show }) => show || "transparent"};
+  color: ${({ isShowed }) => isShowed || "transparent"};
 `;
 
 export const NonLetterStyled = styled.div`
